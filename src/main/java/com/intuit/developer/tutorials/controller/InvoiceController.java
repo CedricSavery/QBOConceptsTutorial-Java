@@ -22,19 +22,24 @@ import com.intuit.developer.tutorials.helper.QBOServiceHelper;
 import com.intuit.ipp.core.IEntity;
 import com.intuit.ipp.data.Account;
 import com.intuit.ipp.data.AccountTypeEnum;
-import com.intuit.ipp.data.Customer;
+import com.intuit.ipp.data.Carrier;
 import com.intuit.ipp.data.EmailAddress;
 import com.intuit.ipp.data.Error;
 import com.intuit.ipp.data.IntuitEntity;
 import com.intuit.ipp.data.Invoice;
 import com.intuit.ipp.data.Item;
-import com.intuit.ipp.data.ItemTypeEnum;
+import com.intuit.ipp.data.LoadDetailsEnum;
 import com.intuit.ipp.data.Line;
-import com.intuit.ipp.data.LineDetailTypeEnum;
+import com.intuit.ipp.data.LoadDetailsTypeEnum;
+import com.intuit.ipp.data.LoadNum;
+import com.intuit.ipp.data.Shipper;
+import com.intuit.ipp.data.Description;
+import com.intuit.ipp.data.PurchaseOrder;
+import com.intuit.ipp.data.Consignee;
 import com.intuit.ipp.data.LinkedTxn;
 import com.intuit.ipp.data.Payment;
 import com.intuit.ipp.data.ReferenceType;
-import com.intuit.ipp.data.SalesItemLineDetail;
+import com.intuit.ipp.data.RatesandChargesLineDetail;
 import com.intuit.ipp.data.TxnTypeEnum;
 import com.intuit.ipp.exception.FMSException;
 import com.intuit.ipp.exception.InvalidTokenException;
@@ -196,10 +201,10 @@ public class InvoiceController {
 		line.setAmount(new BigDecimal("100"));
 		line.setDetailType(LineDetailTypeEnum.SALES_ITEM_LINE_DETAIL);
 		
-		SalesItemLineDetail silDetails = new SalesItemLineDetail();
+		SalesItemLineDetail silDetails = new RatesandChargesDetail();
 		silDetails.setItemRef(createRef(item));
 
-		line.setSalesItemLineDetail(silDetails);
+		line.RatesandChargesDetail(silDetails);
 		invLine.add(line);
 		invoice.setLine(invLine);
 		
